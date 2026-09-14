@@ -2,7 +2,7 @@
 
 ## Product
 
-QuickSpend is a Slovak, mobile-first expense tracker. It is a client-only React/TypeScript PWA deployed at `https://zrebec.github.io/calc/`. Version `0.0.1` stores all data in the browser and has exactly three bottom-navigation views: New entry, monthly overview, and Export/Import.
+QuickSpend is a Slovak, mobile-first expense tracker. It is a client-only React/TypeScript PWA deployed at `https://zrebec.github.io/quickspend/`. Version `0.0.1` stores all data in the browser and has exactly three bottom-navigation views: New entry, monthly overview, and Export/Import.
 
 Do not add a backend, authentication, cloud synchronization, category filters, or currencies other than EUR unless the user explicitly expands the scope. Do not modify or remove the user's untracked `zadanie.md`.
 
@@ -42,4 +42,4 @@ Before handing off a change, run lint, typecheck, tests, and build. For UI/PWA c
 
 ## Acceptance checklist
 
-Verify decimal parsing, all nine categories, theme fallback/persistence, the floating save action, validation boundaries, CRUD persistence, monthly totals, edit/delete, export round-trip, every merge branch, transactional rejection, corrupt-storage protection, `/calc/` asset paths, manifest and service-worker versioning, offline reload, update prompt, safe-area layout, and GitHub Pages build/deploy configuration.
+Verify decimal parsing, all nine categories, theme fallback/persistence, the floating save action, validation boundaries, CRUD persistence, monthly totals, edit/delete, export round-trip, every merge branch, transactional rejection, corrupt-storage protection, `/quickspend/` asset paths, manifest and service-worker versioning, offline reload, update prompt, safe-area layout, and GitHub Pages build/deploy configuration.

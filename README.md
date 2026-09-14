@@ -30,7 +30,7 @@ npm test
 npm run build
 ```
 
-Produkčný build používa base path `/calc/`. GitHub Pages musí mať v **Settings → Pages → Build and deployment** zvolený zdroj **GitHub Actions**.
+Produkčný build používa base path `/quickspend/`. GitHub Pages musí mať v **Settings → Pages → Build and deployment** zvolený zdroj **GitHub Actions**.
 
 ## JSON import
 

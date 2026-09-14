@@ -4,14 +4,14 @@ import { VitePWA, type ManifestOptions } from 'vite-plugin-pwa'
 
 const APP_VERSION = '0.0.1'
 const manifest: Partial<ManifestOptions> & { version: string } = {
-  id: '/calc/',
+  id: '/quickspend/',
   name: 'QuickSpend',
   short_name: 'QuickSpend',
   description: 'Rýchle zaznamenávanie osobných výdavkov',
   version: APP_VERSION,
   lang: 'sk',
-  start_url: '/calc/',
-  scope: '/calc/',
+  start_url: '/quickspend/',
+  scope: '/quickspend/',
   display: 'standalone',
   orientation: 'portrait-primary',
   background_color: '#f4f7f2',
@@ -29,7 +29,7 @@ const manifest: Partial<ManifestOptions> & { version: string } = {
 }
 
 export default defineConfig({
-  base: '/calc/',
+  base: '/quickspend/',
   define: { __APP_VERSION__: JSON.stringify(APP_VERSION) },
   plugins: [
     react(),
