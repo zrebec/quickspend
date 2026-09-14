@@ -6,6 +6,7 @@ import { OverviewScreen } from './components/OverviewScreen'
 import { TransferScreen } from './components/TransferScreen'
 import { UpdatePrompt } from './components/UpdatePrompt'
 import { applyTheme, loadTheme, saveTheme, type Theme } from './theme'
+import { requestPersistentStorage } from './storagePersistence'
 
 type Screen = 'new' | 'overview' | 'transfer'
 
@@ -46,6 +47,7 @@ export default function App() {
     try {
       saveExpenses(next)
       setRecords(next)
+      void requestPersistentStorage()
     } catch (caught) {
       const message = caught instanceof Error ? caught.message : 'Dáta sa nepodarilo uložiť.'
       setStorageError(message)

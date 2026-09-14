@@ -1,7 +1,14 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, expect, it, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { TransferScreen } from '../components/TransferScreen'
+
+const originalStorageManager = Object.getOwnPropertyDescriptor(navigator, 'storage')
+
+afterEach(() => {
+  if (originalStorageManager) Object.defineProperty(navigator, 'storage', originalStorageManager)
+  else Reflect.deleteProperty(navigator, 'storage')
+})
 
 describe('TransferScreen', () => {
   it('validates a selected file and returns the merged records with a summary', async () => {
@@ -35,5 +42,23 @@ describe('TransferScreen', () => {
       'Pridané: 1, aktualizované: 0, bez zmeny: 0.',
     )
     expect(screen.getByText(/Pridané: 1/)).toBeInTheDocument()
+  })
+
+  it('requests persistent storage and reports a grant', async () => {
+    const user = userEvent.setup()
+    const persist = vi.fn().mockResolvedValue(true)
+    Object.defineProperty(navigator, 'storage', {
+      configurable: true,
+      value: {
+        persisted: vi.fn().mockResolvedValue(false),
+        persist,
+      },
+    })
+
+    render(<TransferScreen records={[]} onImport={vi.fn()} />)
+    await user.click(await screen.findByRole('button', { name: 'Chrániť lokálne dáta' }))
+
+    expect(persist).toHaveBeenCalledOnce()
+    expect(await screen.findByText(/Prehliadač chráni lokálne dáta/)).toBeInTheDocument()
   })
 })

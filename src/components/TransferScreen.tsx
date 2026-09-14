@@ -1,6 +1,11 @@
-import { useRef, useState, type ChangeEvent } from 'react'
+import { useEffect, useRef, useState, type ChangeEvent } from 'react'
 import type { ExpenseRecord } from '../domain'
 import { createExport, mergeImport } from '../importExport'
+import {
+  checkStoragePersistence,
+  requestPersistentStorage,
+  type StoragePersistenceStatus,
+} from '../storagePersistence'
 
 interface TransferScreenProps {
   records: ExpenseRecord[]
@@ -22,10 +27,45 @@ const downloadText = (content: string, filename: string, type = 'application/jso
 
 const fileDate = (): string => new Date().toISOString().slice(0, 10)
 
+type PersistenceViewStatus = StoragePersistenceStatus | 'checking' | 'requesting'
+
 export function TransferScreen({ records, onImport, rawRecoveryData }: TransferScreenProps) {
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
+  const [persistenceStatus, setPersistenceStatus] = useState<PersistenceViewStatus>('checking')
+  const [persistenceRequested, setPersistenceRequested] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
   const recoveryMode = rawRecoveryData !== null && rawRecoveryData !== undefined
+
+  useEffect(() => {
+    let active = true
+    void checkStoragePersistence().then((status) => {
+      if (active) setPersistenceStatus(status)
+    })
+    return () => {
+      active = false
+    }
+  }, [])
+
+  const protectStorage = async () => {
+    setPersistenceStatus('requesting')
+    const status = await requestPersistentStorage()
+    setPersistenceRequested(true)
+    setPersistenceStatus(status)
+  }
+
+  const persistenceMessage = (() => {
+    if (persistenceStatus === 'checking') return 'Kontrolujem ochranu lokálnych dát.'
+    if (persistenceStatus === 'requesting') return 'Žiadam prehliadač o zvýšenú ochranu dát.'
+    if (persistenceStatus === 'persistent') {
+      return 'Prehliadač chráni lokálne dáta pred automatickým uvoľnením úložiska. Export zostáva najistejšou zálohou.'
+    }
+    if (persistenceStatus === 'unsupported') {
+      return 'Tento prehliadač nevie zvýšenú ochranu potvrdiť. Pravidelne exportuj zálohu.'
+    }
+    return persistenceRequested
+      ? 'Prehliadač ochranu zatiaľ nepovolil. Dáta zostávajú uložené, pravidelne ich exportuj.'
+      : 'Prehliadač môže dáta pri nedostatku miesta odstrániť. Môžeš požiadať o zvýšenú ochranu.'
+  })()
 
   const exportData = () => {
     const content = JSON.stringify(createExport(records), null, 2)
@@ -97,6 +137,24 @@ export function TransferScreen({ records, onImport, rawRecoveryData }: TransferS
         >
           Vybrať súbor
         </button>
+      </article>
+
+      <article className="transfer-card">
+        <span className="card-icon" aria-hidden="true">◈</span>
+        <div>
+          <h2>Ochrana úložiska</h2>
+          <p aria-live="polite">{persistenceMessage}</p>
+        </div>
+        {persistenceStatus === 'best-effort' && (
+          <button className="button secondary" type="button" onClick={protectStorage}>
+            {persistenceRequested ? 'Skúsiť znova' : 'Chrániť lokálne dáta'}
+          </button>
+        )}
+        {persistenceStatus === 'requesting' && (
+          <button className="button secondary" type="button" disabled>
+            Kontrolujem…
+          </button>
+        )}
       </article>
 
       {recoveryMode && (

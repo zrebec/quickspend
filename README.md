@@ -10,6 +10,7 @@ QuickSpend je mobilná PWA na rýchle zaznamenávanie osobných výdavkov. Fungu
 - mesačný prehľad so súčtom, úpravou a zmazaním,
 - transakčný export/import verziovaného JSON,
 - offline PWA režim a samostatné ikony pre iOS,
+- best-effort ochrana lokálnych dát cez Persistent Storage API,
 - automatické zostavenie a nasadenie na GitHub Pages.
 
 ## Lokálny vývoj
