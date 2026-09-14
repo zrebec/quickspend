@@ -1,0 +1,27 @@
+/*
+ * QuickSpend visual theme
+ *
+ * Change these three palette values while exploring the visual identity.
+ * Everything below them only assigns the palette to UI roles.
+ */
+:root {
+  --black: #000000;
+  --white: #ffffff;
+  --accent: #0066aa;
+
+  --background: var(--white);
+  --primary: var(--black);
+  --on-accent: var(--white);
+  --muted: color-mix(in srgb, var(--primary) 68%, transparent);
+  --line: color-mix(in srgb, var(--accent) 48%, transparent);
+  --danger: var(--accent);
+  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
+  --shadow: 0 12px 36px color-mix(in srgb, var(--accent) 12%, transparent);
+  color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+  --background: var(--black);
+  --primary: var(--white);
+  color-scheme: dark;
+}

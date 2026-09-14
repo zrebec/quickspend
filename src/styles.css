@@ -13,25 +13,6 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  /* The whole UI palette starts with these three values. */
-  --black: #000000;
-  --white: #ffffff;
-  --accent: #0066aa;
-  --background: var(--white);
-  --primary: var(--black);
-  --on-accent: var(--white);
-  --muted: color-mix(in srgb, var(--primary) 68%, transparent);
-  --line: color-mix(in srgb, var(--accent) 48%, transparent);
-  --danger: var(--accent);
-  --accent-soft: color-mix(in srgb, var(--accent) 18%, transparent);
-  --shadow: 0 12px 36px color-mix(in srgb, var(--accent) 12%, transparent);
-  color-scheme: light;
-}
-
-:root[data-theme="dark"] {
-  --background: var(--black);
-  --primary: var(--white);
-  color-scheme: dark;
 }
 
 * {
@@ -687,7 +668,7 @@ input:focus-visible {
   border: 0;
   border-radius: 14px;
   background: transparent;
-  color: var(--secondary);
+  color: var(--muted);
   cursor: pointer;
   font-size: 0.69rem;
   font-weight: 750;
