@@ -13,11 +13,13 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --background: #ffffff;
-  --primary: #000000;
+  /* The whole UI palette starts with these three values. */
+  --black: #000000;
+  --white: #ffffff;
   --accent: #0066aa;
-  --surface: var(--background);
-  --ink: var(--primary);
+  --background: var(--white);
+  --primary: var(--black);
+  --on-accent: var(--white);
   --muted: color-mix(in srgb, var(--primary) 68%, transparent);
   --line: color-mix(in srgb, var(--accent) 48%, transparent);
   --danger: var(--accent);
@@ -27,8 +29,8 @@
 }
 
 :root[data-theme="dark"] {
-  --background: #000000;
-  --primary: #ffffff;
+  --background: var(--black);
+  --primary: var(--white);
   color-scheme: dark;
 }
 
@@ -143,7 +145,7 @@ input:focus-visible {
   justify-content: space-between;
   width: 100%;
   margin-bottom: 8px;
-  color: var(--ink);
+  color: var(--primary);
   font-size: 0.84rem;
   font-weight: 750;
 }
@@ -173,7 +175,7 @@ input:focus-visible {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: var(--surface);
+  background: var(--background);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 5%, transparent);
   color: var(--muted);
   cursor: pointer;
@@ -193,7 +195,7 @@ input:focus-visible {
 .category-option.selected {
   border-color: var(--accent);
   background: var(--accent);
-  color: #000000;
+  color: var(--on-accent);
 }
 
 .category-option input {
@@ -226,14 +228,14 @@ input:focus-visible {
   align-items: center;
   border: 1px solid var(--line);
   border-radius: 14px;
-  background: var(--surface);
+  background: var(--background);
   box-shadow: 0 2px 8px color-mix(in srgb, var(--accent) 5%, transparent);
 }
 
 .field > input {
   min-width: 0;
   padding: 0 14px;
-  color: var(--ink);
+  color: var(--primary);
   -webkit-appearance: none;
   appearance: none;
 }
@@ -316,12 +318,12 @@ input:focus-visible {
 .button.primary {
   background: var(--accent);
   box-shadow: 0 8px 18px color-mix(in srgb, var(--accent) 30%, transparent);
-  color: #000000;
+  color: var(--on-accent);
 }
 
 .button.secondary {
   border: 1px solid var(--line);
-  background: var(--surface);
+  background: var(--background);
   color: var(--primary);
 }
 
@@ -353,7 +355,7 @@ input:focus-visible {
   height: 29px;
   place-items: center;
   border-radius: 50%;
-  background: rgb(0 0 0 / 12%);
+  background: color-mix(in srgb, var(--on-accent) 18%, transparent);
   font-size: 1.15rem;
   line-height: 1;
 }
@@ -368,7 +370,7 @@ input:focus-visible {
   border-radius: 20px;
   background: var(--accent);
   box-shadow: var(--shadow);
-  color: #000000;
+  color: var(--on-accent);
   text-align: center;
 }
 
@@ -392,7 +394,7 @@ input:focus-visible {
   padding: 0;
   border: 0;
   border-radius: 50%;
-  background: rgb(0 0 0 / 12%);
+  background: color-mix(in srgb, var(--on-accent) 18%, transparent);
   color: inherit;
   cursor: pointer;
   font-size: 1.65rem;
@@ -400,7 +402,7 @@ input:focus-visible {
 
 .month-card p {
   margin: 0 0 4px;
-  color: rgb(0 0 0 / 68%);
+  color: color-mix(in srgb, var(--on-accent) 72%, transparent);
   font-size: 0.78rem;
 }
 
@@ -424,7 +426,7 @@ input:focus-visible {
 
 .empty-state h2 {
   margin: 12px 0 5px;
-  color: var(--ink);
+  color: var(--primary);
   font-size: 1.05rem;
 }
 
@@ -437,7 +439,7 @@ input:focus-visible {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: var(--surface);
+  background: var(--background);
   box-shadow: var(--shadow);
 }
 
@@ -536,7 +538,7 @@ input:focus-visible {
   align-items: flex-end;
   justify-content: center;
   padding-top: env(safe-area-inset-top);
-  background: rgb(0 0 0 / 72%);
+  background: color-mix(in srgb, var(--black) 72%, transparent);
   backdrop-filter: blur(3px);
 }
 
@@ -547,7 +549,7 @@ input:focus-visible {
   overflow-y: auto;
   border-radius: 24px 24px 0 0;
   background: var(--background);
-  box-shadow: 0 -20px 60px rgb(0 0 0 / 20%);
+  box-shadow: 0 -20px 60px color-mix(in srgb, var(--black) 20%, transparent);
 }
 
 .dialog-header {
@@ -563,8 +565,8 @@ input:focus-visible {
 }
 
 .dialog-header .icon-button {
-  background: var(--surface);
-  color: var(--ink);
+  background: var(--background);
+  color: var(--primary);
 }
 
 .transfer-screen {
@@ -580,7 +582,7 @@ input:focus-visible {
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 18px;
-  background: var(--surface);
+  background: var(--background);
   box-shadow: 0 7px 22px color-mix(in srgb, var(--accent) 8%, transparent);
 }
 
@@ -592,7 +594,7 @@ input:focus-visible {
   place-items: center;
   border-radius: 13px;
   background: var(--accent);
-  color: #000000;
+  color: var(--on-accent);
   font-size: 1.4rem;
   font-weight: 800;
 }
@@ -700,7 +702,7 @@ input:focus-visible {
 
 .bottom-nav button.active {
   background: var(--accent);
-  color: #000000;
+  color: var(--on-accent);
 }
 
 .toast,
@@ -714,7 +716,7 @@ input:focus-visible {
   border: 0;
   border-radius: 14px;
   background: var(--primary);
-  box-shadow: 0 12px 34px rgb(0 0 0 / 20%);
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--black) 20%, transparent);
   color: var(--background);
   font-size: 0.82rem;
   font-weight: 700;
@@ -733,7 +735,7 @@ input:focus-visible {
   padding: 0;
   border: 1px solid var(--line);
   border-radius: 50%;
-  background: var(--surface);
+  background: var(--background);
   box-shadow: 0 5px 18px color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--primary);
   cursor: pointer;
@@ -755,7 +757,7 @@ input:focus-visible {
   border: 0;
   border-radius: 9px;
   background: var(--accent);
-  color: #000000;
+  color: var(--on-accent);
   cursor: pointer;
   font-weight: 750;
 }

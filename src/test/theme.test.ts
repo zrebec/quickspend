@@ -22,12 +22,7 @@ describe('theme preferences', () => {
   })
 
   it('applies the theme to the document root', () => {
-    const themeColor = document.createElement('meta')
-    themeColor.name = 'theme-color'
-    document.head.appendChild(themeColor)
     applyTheme('light')
     expect(document.documentElement.dataset.theme).toBe('light')
-    expect(themeColor).toHaveAttribute('content', '#002da9')
-    themeColor.remove()
   })
 })
