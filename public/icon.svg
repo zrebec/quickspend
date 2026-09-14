@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
   <title id="title">QuickSpend</title>
-  <rect width="512" height="512" rx="112" fill="#196b49"/>
+  <rect width="512" height="512" rx="112" fill="#9f2857"/>
   <path d="M142 106c0-15 17-24 30-16l19 12 19-12a28 28 0 0 1 30 0l19 12 19-12a28 28 0 0 1 30 0l19 12 19-12c13-8 30 1 30 16v294c0 15-17 24-30 16l-19-12-19 12a28 28 0 0 1-30 0l-19-12-19 12a28 28 0 0 1-30 0l-19-12-19 12c-13 8-30-1-30-16V106Z" fill="#fff"/>
-  <path d="M196 178h120M196 222h78" fill="none" stroke="#8acda7" stroke-width="22" stroke-linecap="round"/>
+  <path d="M196 178h120M196 222h78" fill="none" stroke="#e9a3bc" stroke-width="22" stroke-linecap="round"/>
   <path d="M276 238 211 326h49l-25 84 71-105h-48l18-67Z" fill="#f4b942"/>
 </svg>

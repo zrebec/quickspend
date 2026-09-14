@@ -7,30 +7,30 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  --green-900: #124c36;
-  --green-700: #196b49;
-  --green-600: #23825b;
-  --green-100: #dff2e8;
-  --cream: #f4f7f2;
+  --rose-900: #6f1d3f;
+  --rose-700: #9f2857;
+  --rose-600: #b73567;
+  --rose-100: #fbe2eb;
+  --cream: #fff7fa;
   --surface: #ffffff;
-  --ink: #17251f;
-  --muted: #68756f;
-  --line: #dfe7e2;
+  --ink: #2d1822;
+  --muted: #74616a;
+  --line: #ead8df;
   --danger: #b73838;
-  --shadow: 0 12px 36px rgb(18 76 54 / 10%);
+  --shadow: 0 12px 36px rgb(111 29 63 / 10%);
   color-scheme: light;
 }
 
 :root[data-theme="dark"] {
-  --green-900: #d8f5e6;
-  --green-700: #2f8d61;
-  --green-600: #6fd39e;
-  --green-100: #213f31;
-  --cream: #0e1713;
-  --surface: #18231e;
-  --ink: #eef5f1;
-  --muted: #9baba3;
-  --line: #304039;
+  --rose-900: #ffd6e4;
+  --rose-700: #ae315f;
+  --rose-600: #ff8fb5;
+  --rose-100: #472334;
+  --cream: #1a1116;
+  --surface: #261820;
+  --ink: #fff3f7;
+  --muted: #baa3ad;
+  --line: #49313c;
   --danger: #ff9494;
   --shadow: 0 12px 36px rgb(0 0 0 / 28%);
   color-scheme: dark;
@@ -53,13 +53,13 @@ body,
 body {
   min-width: 320px;
   background:
-    radial-gradient(circle at 90% -5%, rgb(134 207 165 / 30%), transparent 34%),
+    radial-gradient(circle at 90% -5%, rgb(235 137 172 / 30%), transparent 34%),
     var(--cream);
 }
 
 :root[data-theme="dark"] body {
   background:
-    radial-gradient(circle at 90% -5%, rgb(53 132 89 / 24%), transparent 34%),
+    radial-gradient(circle at 90% -5%, rgb(154 49 88 / 24%), transparent 34%),
     var(--cream);
 }
 
@@ -74,7 +74,7 @@ button {
 
 button:focus-visible,
 input:focus-visible {
-  outline: 3px solid rgb(25 107 73 / 30%);
+  outline: 3px solid rgb(159 40 87 / 30%);
   outline-offset: 2px;
 }
 
@@ -86,11 +86,11 @@ input:focus-visible {
   min-height: 0;
   margin: 0 auto;
   overflow: hidden;
-  background: rgb(244 247 242 / 78%);
+  background: rgb(255 247 250 / 78%);
 }
 
 :root[data-theme="dark"] .app-shell {
-  background: rgb(14 23 19 / 86%);
+  background: rgb(26 17 22 / 86%);
 }
 
 .main-content {
@@ -121,7 +121,7 @@ input:focus-visible {
 
 .screen-header h1 {
   margin: 2px 0 7px;
-  color: var(--green-900);
+  color: var(--rose-900);
   font-size: clamp(1.8rem, 7vw, 2.35rem);
   line-height: 1.05;
   letter-spacing: -0.045em;
@@ -134,7 +134,7 @@ input:focus-visible {
 
 .eyebrow {
   margin: 0;
-  color: var(--green-600);
+  color: var(--rose-600);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.13em;
@@ -190,7 +190,7 @@ input:focus-visible {
   border: 1px solid var(--line);
   border-radius: 16px;
   background: var(--surface);
-  box-shadow: 0 2px 8px rgb(18 76 54 / 3%);
+  box-shadow: 0 2px 8px rgb(111 29 63 / 3%);
   color: var(--muted);
   cursor: pointer;
   font-size: clamp(0.68rem, 3vw, 0.78rem);
@@ -204,9 +204,9 @@ input:focus-visible {
 }
 
 .category-option.selected {
-  border-color: var(--green-600);
-  background: var(--green-100);
-  color: var(--green-900);
+  border-color: var(--rose-600);
+  background: var(--rose-100);
+  color: var(--rose-900);
 }
 
 .category-option input {
@@ -217,7 +217,7 @@ input:focus-visible {
 }
 
 .category-option:has(input:focus-visible) {
-  outline: 3px solid rgb(25 107 73 / 30%);
+  outline: 3px solid rgb(159 40 87 / 30%);
   outline-offset: 2px;
 }
 
@@ -240,7 +240,7 @@ input:focus-visible {
   border: 1px solid var(--line);
   border-radius: 14px;
   background: var(--surface);
-  box-shadow: 0 2px 8px rgb(18 76 54 / 3%);
+  box-shadow: 0 2px 8px rgb(111 29 63 / 3%);
 }
 
 .field > input {
@@ -253,7 +253,7 @@ input:focus-visible {
 
 .field > input::placeholder,
 .amount-input-wrap input::placeholder {
-  color: #9aa59f;
+  color: #9c8992;
 }
 
 .amount-input-wrap {
@@ -261,8 +261,8 @@ input:focus-visible {
 }
 
 .amount-input-wrap:focus-within {
-  border-color: var(--green-600);
-  outline: 3px solid rgb(25 107 73 / 15%);
+  border-color: var(--rose-600);
+  outline: 3px solid rgb(159 40 87 / 15%);
 }
 
 .amount-input-wrap input {
@@ -272,14 +272,14 @@ input:focus-visible {
   border: 0;
   outline: 0;
   background: transparent;
-  color: var(--green-900);
+  color: var(--rose-900);
   font-size: 2rem;
   font-weight: 800;
   letter-spacing: -0.04em;
 }
 
 .amount-input-wrap > span {
-  color: var(--green-600);
+  color: var(--rose-600);
   font-size: 1.35rem;
   font-weight: 800;
 }
@@ -325,15 +325,15 @@ input:focus-visible {
 }
 
 .button.primary {
-  background: var(--green-700);
-  box-shadow: 0 8px 18px rgb(25 107 73 / 22%);
+  background: var(--rose-700);
+  box-shadow: 0 8px 18px rgb(159 40 87 / 22%);
   color: white;
 }
 
 .button.secondary {
   border: 1px solid var(--line);
   background: var(--surface);
-  color: var(--green-900);
+  color: var(--rose-900);
 }
 
 .save-button {
@@ -377,14 +377,14 @@ input:focus-visible {
   margin-bottom: 16px;
   padding: 14px 16px 20px;
   border-radius: 20px;
-  background: linear-gradient(140deg, var(--green-900), var(--green-600));
+  background: linear-gradient(140deg, var(--rose-900), var(--rose-600));
   box-shadow: var(--shadow);
   color: white;
   text-align: center;
 }
 
 :root[data-theme="dark"] .month-card {
-  background: linear-gradient(140deg, #173d2d, #286f4f);
+  background: linear-gradient(140deg, #541b34, #9a3158);
 }
 
 .month-switcher {
@@ -427,7 +427,7 @@ input:focus-visible {
 
 .empty-state {
   padding: 46px 20px;
-  border: 1px dashed #cbd8d0;
+  border: 1px dashed #e4cbd5;
   border-radius: 20px;
   color: var(--muted);
   text-align: center;
@@ -465,7 +465,7 @@ input:focus-visible {
 
 .expense-table th {
   padding: 11px 10px;
-  background: #edf4ef;
+  background: #fbecf2;
   color: var(--muted);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
@@ -474,7 +474,7 @@ input:focus-visible {
 }
 
 :root[data-theme="dark"] .expense-table th {
-  background: #213129;
+  background: #3a202d;
 }
 
 .expense-table th:first-child { width: 35%; }
@@ -487,7 +487,7 @@ input:focus-visible {
 }
 
 .expense-record td:last-child {
-  color: var(--green-900);
+  color: var(--rose-900);
   text-align: right;
   white-space: nowrap;
 }
@@ -511,7 +511,7 @@ input:focus-visible {
 }
 
 .muted {
-  color: #9aa59f;
+  color: #9c8992;
   font-style: italic;
 }
 
@@ -526,7 +526,7 @@ input:focus-visible {
   padding: 0 8px;
   border: 0;
   background: transparent;
-  color: var(--green-700);
+  color: var(--rose-700);
   cursor: pointer;
   font-size: 0.76rem;
   font-weight: 750;
@@ -544,7 +544,7 @@ input:focus-visible {
   align-items: flex-end;
   justify-content: center;
   padding-top: env(safe-area-inset-top);
-  background: rgb(12 28 20 / 55%);
+  background: rgb(42 16 28 / 55%);
   backdrop-filter: blur(3px);
 }
 
@@ -567,7 +567,7 @@ input:focus-visible {
 
 .dialog-header h2 {
   margin: 2px 0 0;
-  color: var(--green-900);
+  color: var(--rose-900);
 }
 
 .dialog-header .icon-button {
@@ -589,7 +589,7 @@ input:focus-visible {
   border: 1px solid var(--line);
   border-radius: 18px;
   background: var(--surface);
-  box-shadow: 0 7px 22px rgb(18 76 54 / 6%);
+  box-shadow: 0 7px 22px rgb(111 29 63 / 6%);
 }
 
 .card-icon {
@@ -599,15 +599,15 @@ input:focus-visible {
   grid-row: span 2;
   place-items: center;
   border-radius: 13px;
-  background: var(--green-100);
-  color: var(--green-900);
+  background: var(--rose-100);
+  color: var(--rose-900);
   font-size: 1.4rem;
   font-weight: 800;
 }
 
 .transfer-card h2 {
   margin: 1px 0 4px;
-  color: var(--green-900);
+  color: var(--rose-900);
   font-size: 1.02rem;
 }
 
@@ -641,8 +641,8 @@ input:focus-visible {
 }
 
 .status-message.success {
-  background: var(--green-100);
-  color: var(--green-900);
+  background: var(--rose-100);
+  color: var(--rose-900);
 }
 
 .status-message.error,
@@ -667,7 +667,7 @@ input:focus-visible {
 .version {
   margin: auto 0 0;
   padding: 22px 0 4px;
-  color: #89958e;
+  color: #96808a;
   font-size: 0.72rem;
   text-align: center;
 }
@@ -682,19 +682,19 @@ input:focus-visible {
   grid-template-columns: repeat(3, 1fr);
   min-height: calc(68px + env(safe-area-inset-bottom));
   padding: 6px 10px env(safe-area-inset-bottom);
-  border-top: 1px solid rgb(216 227 220 / 85%);
+  border-top: 1px solid rgb(234 216 223 / 85%);
   background: rgb(255 255 255 / 92%);
-  box-shadow: 0 -8px 28px rgb(18 76 54 / 7%);
+  box-shadow: 0 -8px 28px rgb(111 29 63 / 7%);
   backdrop-filter: blur(18px);
 }
 
 :root[data-theme="dark"] .bottom-nav {
-  border-top-color: rgb(64 83 73 / 90%);
-  background: rgb(24 35 30 / 94%);
+  border-top-color: rgb(73 49 60 / 90%);
+  background: rgb(38 24 32 / 94%);
 }
 
 :root[data-theme="dark"] .bottom-nav button {
-  color: #a3b2aa;
+  color: #bca5af;
 }
 
 .bottom-nav button {
@@ -702,7 +702,7 @@ input:focus-visible {
   border: 0;
   border-radius: 14px;
   background: transparent;
-  color: #718078;
+  color: #806b74;
   cursor: pointer;
   font-size: 0.69rem;
   font-weight: 750;
@@ -716,8 +716,8 @@ input:focus-visible {
 }
 
 .bottom-nav button.active {
-  background: var(--green-100);
-  color: var(--green-900);
+  background: var(--rose-100);
+  color: var(--rose-900);
 }
 
 .toast,
@@ -730,7 +730,7 @@ input:focus-visible {
   padding: 13px 16px;
   border: 0;
   border-radius: 14px;
-  background: #17251f;
+  background: #2d1822;
   box-shadow: 0 12px 34px rgb(0 0 0 / 20%);
   color: white;
   font-size: 0.82rem;
@@ -740,8 +740,8 @@ input:focus-visible {
 
 :root[data-theme="dark"] .toast,
 :root[data-theme="dark"] .update-prompt {
-  background: #e4f1ea;
-  color: #15231c;
+  background: #ffe5ee;
+  color: #2d1721;
 }
 
 .theme-toggle {
@@ -757,8 +757,8 @@ input:focus-visible {
   border: 1px solid var(--line);
   border-radius: 50%;
   background: var(--surface);
-  box-shadow: 0 5px 18px rgb(18 76 54 / 10%);
-  color: var(--green-900);
+  box-shadow: 0 5px 18px rgb(111 29 63 / 10%);
+  color: var(--rose-900);
   cursor: pointer;
   font-size: 1.3rem;
 }
@@ -777,8 +777,8 @@ input:focus-visible {
   padding: 0 12px;
   border: 0;
   border-radius: 9px;
-  background: var(--green-100);
-  color: var(--green-900);
+  background: var(--rose-100);
+  color: var(--rose-900);
   cursor: pointer;
   font-weight: 750;
 }
@@ -798,7 +798,7 @@ input:focus-visible {
   .app-shell {
     border-right: 1px solid var(--line);
     border-left: 1px solid var(--line);
-    box-shadow: 0 0 70px rgb(18 76 54 / 9%);
+    box-shadow: 0 0 70px rgb(111 29 63 / 9%);
   }
 
   .screen {

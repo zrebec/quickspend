@@ -14,8 +14,8 @@ const manifest: Partial<ManifestOptions> & { version: string } = {
   scope: '/quickspend/',
   display: 'standalone',
   orientation: 'portrait-primary',
-  background_color: '#f4f7f2',
-  theme_color: '#196b49',
+  background_color: '#fff7fa',
+  theme_color: '#9f2857',
   icons: [
     { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
     { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' },

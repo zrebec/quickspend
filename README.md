@@ -39,3 +39,7 @@ Export obsahuje názov formátu, verziu schémy/aplikácie, menu a pole záznamo
 `dining`, `household`, `groceries`, `health`, `car`, `pets`, `entertainment`, `recurring`, `other`.
 
 Import najprv overí celý súbor. Pri chybe nezapíše nič.
+
+## Nápady do budúcnosti
+
+- Po zvolení kategórie **Iné** zobraziť rozbaľovaciu ponuku s ďalšími kategóriami. Prvých päť možností by tvorili najčastejšie používané kategórie; ich poradie by si aplikácia pamätala lokálne v zariadení.

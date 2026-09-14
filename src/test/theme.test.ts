@@ -27,7 +27,7 @@ describe('theme preferences', () => {
     document.head.appendChild(themeColor)
     applyTheme('light')
     expect(document.documentElement.dataset.theme).toBe('light')
-    expect(themeColor).toHaveAttribute('content', '#196b49')
+    expect(themeColor).toHaveAttribute('content', '#9f2857')
     themeColor.remove()
   })
 })
